@@ -1,3 +1,6 @@
+import math
+
+
 def isprime(n):
     if (n==1):
         return False
@@ -9,29 +12,49 @@ def isprime(n):
                 return False
         return True
 
-def strtoint(str_list):
-    int_list = [int(n) for n in str_list]
-    return int_list
+
 
 def solutie():
-    mainarr = []
+    answer = input("a/b/c?")
     f = open("File.txt", "r")
     lines = [line.rstrip('\n\r') for line in f]
 
-    #aici creez un array lines cu fiecare linie pe care un loc
-    #iau, pe rand, liniile si duc in mainarr elementul de la jumatea fiecarei linii
-    x = 0
-    for x in range (len(lines[x])):
-        strtoint(lines[x])
-        length = len(lines[x])
-        mainarr[x] = lines[length/2]
-        print(result)
-        #print("\n")
-        #mainarr[x] = lines[x]
+#aici creez un array lines cu fiecare linie pe care un loc
+#iau, pe rand, liniile si duc in mainarr elementul de la jumatea fiecarei linii
 
-    for x in range (len(mainarr[x])):
-        print (mainarr[x])
+    mainintarr = []
+    mainarr = []
+    length = len(lines)-1
+    temparr = []
+    nrprime = []
+    cuvant = ''
+    x=0
 
+    for line in lines:
+        if(x<=length):
+            temparr = lines[x].split(' ')
+            x+=1
+#acum in temparr am o linie din fisier, urmeaza
+#sa o convertesc in int
+        mainarr.append(temparr[int(len(temparr)/2)])
+
+    for x in range (len(mainarr)):
+        mainintarr.append(int(mainarr[x]))
+    
+    if (answer == 'a'):
+        print(mainintarr)
+
+    for x in range (len(mainintarr)):
+        if(isprime(mainintarr[x])):
+            nrprime.append(mainintarr[x])
+
+    if (answer == 'b'):
+        print(nrprime)
+
+    if (answer == 'c'):
+        for x in range(len(nrprime)):
+            cuvant = cuvant + chr(nrprime[x])
+        print (cuvant)
 
 def main():
     solutie()
