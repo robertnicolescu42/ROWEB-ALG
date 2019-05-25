@@ -1,6 +1,6 @@
 import math
 
-
+#functia care verifica primalitatea unui numar
 def isprime(n):
     if (n==1):
         return False
@@ -15,6 +15,8 @@ def isprime(n):
 
 
 def solutie():
+
+    print("Alege subpunctul:")
     answer = input("a/b/c?")
     f = open("File.txt", "r")
     lines = [line.rstrip('\n\r') for line in f]
@@ -22,6 +24,7 @@ def solutie():
 #aici creez un array lines cu fiecare linie pe care un loc
 #iau, pe rand, liniile si duc in mainarr elementul de la jumatea fiecarei linii
 
+#initializari
     mainintarr = []
     mainarr = []
     length = len(lines)-1
@@ -34,9 +37,10 @@ def solutie():
         if(x<=length):
             temparr = lines[x].split(' ')
             x+=1
+
 #acum in temparr am o linie din fisier, urmeaza
 #sa o convertesc in int
-        mainarr.append(temparr[int(len(temparr)/2)])
+        mainarr.append(temparr[int(math.floor(len(temparr)/2))])
 
     for x in range (len(mainarr)):
         mainintarr.append(int(mainarr[x]))
